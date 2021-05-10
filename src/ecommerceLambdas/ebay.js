@@ -13,6 +13,9 @@ module.exports.handler = async (event, context, callback) => {
   const EBAY_APP_CLIENT_ID = await ssm.getParameter('/keys/ebay/AppClientId').promise();
   const EBAY_CERT_ID = await ssm.getParameter('/keys/ebay/CertId').promise();
 
+  console.log(EBAY_APP_CLIENT_ID);
+  console.log(EBAY_CERT_ID);
+
   // read all txt files from the root of the Ebay bucket
   // Skip any object in a subdirectories, since completed
   //  files are placed in a /completed subdirectory
