@@ -16,6 +16,7 @@ phases:
       - npm test
   build:
     commands:
+      - cat ~/.aws/credentials
       # Run script to setup the CodeBuild server with the necessary AWS profile
       - node src/scripts/configureProfile.js
 
