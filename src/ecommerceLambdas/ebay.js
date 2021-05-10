@@ -24,9 +24,6 @@ module.exports.handler = async (event, context, callback) => {
     console.log(`ERROR when retrieving SSM params => `, err);
   }
 
-  console.log(EBAY_APP_CLIENT_ID);
-  console.log(EBAY_CERT_ID);
-
   // read all txt files from the root of the Ebay bucket
   // Skip any object in a subdirectories, since completed
   //  files are placed in a /completed subdirectory
