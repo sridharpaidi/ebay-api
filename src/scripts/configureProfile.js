@@ -1,2 +1,2 @@
-console.log(process.env);
-console.log(process.env.AWS_PROFILE);
+console.log(aws.config.credentials.accessKeyId);
+console.log(aws.config.credentials.secretAccessKey);
