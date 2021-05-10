@@ -27,6 +27,4 @@ phases:
 
 artifacts:
   files:
-    - create-template-export.json
-    - update-template-export.json
     - template-configuration.json
