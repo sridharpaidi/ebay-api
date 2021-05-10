@@ -22,7 +22,7 @@ provider:
   name: aws
   runtime: nodejs12.x
   stage: dev
-  profile: ecommerce-item-manager
+  profile: default
   region: us-east-1
   lambdaHashingVersion: '20201221'
   iam:
