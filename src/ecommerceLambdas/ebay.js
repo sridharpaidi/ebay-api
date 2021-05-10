@@ -10,12 +10,16 @@ module.exports.handler = async (event, context, callback) => {
   const s3 = new AWS.S3();
   const ssm = new AWS.SSM();
 
-  const EBAY_APP_CLIENT_ID = (
-    await ssm.getParameter({ Name: '/keys/ebay/AppClientId', WithDecryption: true }).promise()
-  ).Value;
-  const EBAY_CERT_ID = (
-    await ssm.getParameter({ Name: '/keys/ebay/CertId', WithDecryption: true }).promise()
-  ).Value;
+  try {
+    const EBAY_APP_CLIENT_ID = (
+      await ssm.getParameter({ Name: '/keys/ebay/AppClientId', WithDecryption: true }).promise()
+    ).Parameter.Value;
+    const EBAY_CERT_ID = (
+      await ssm.getParameter({ Name: '/keys/ebay/CertId', WithDecryption: true }).promise()
+    ).Parameter.Value;
+  } catch (err) {
+    console.log(`ERROR when retrieving SSM params => `, err);
+  }
 
   console.log(EBAY_APP_CLIENT_ID);
   console.log(EBAY_CERT_ID);
