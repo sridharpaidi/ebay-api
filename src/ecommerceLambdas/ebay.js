@@ -2,14 +2,16 @@ const AWS = require('aws-sdk');
 const EbayAuthToken = require('ebay-oauth-nodejs-client');
 const axios = require('axios');
 
-// TODO: Might need to retrieve the SSM params directly rather than through lambda variables
-//  so that the lambda can retrieve new keys without being redeployed.
-const { EBAY_TABLE, EBAY_APP_CLIENT_ID, EBAY_CERT_ID, EBAY_BUCKET_NAME } = process.env;
+const { EBAY_TABLE, EBAY_BUCKET_NAME } = process.env;
 const ebayItemUrl = 'https://api.ebay.com/buy/browse/v1/item/';
 
 module.exports.handler = async (event, context, callback) => {
   const dynamoDb = new AWS.DynamoDB.DocumentClient();
   const s3 = new AWS.S3();
+  const ssm = new AWS.SSM();
+
+  const EBAY_APP_CLIENT_ID = await ssm.getParameter('/keys/ebay/AppClientId').promise();
+  const EBAY_CERT_ID = await ssm.getParameter('/keys/ebay/CertId').promise();
 
   // read all txt files from the root of the Ebay bucket
   // Skip any object in a subdirectories, since completed

@@ -85,9 +85,6 @@ functions:
         - 'node_modules/follow-redirects/**'
 
     environment:
-      EBAY_APP_CLIENT_ID: ${ssm:/keys/ebay/AppClientId}
-      EBAY_DEV_ID: ${ssm:/keys/ebay/DevId}
-      EBAY_CERT_ID: ${ssm:/keys/ebay/CertId}
       EBAY_BUCKET_NAME: !Ref EbayItemBucket
     events:
       - schedule: rate(7 days)
