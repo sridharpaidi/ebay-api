@@ -54,6 +54,7 @@ provider:
 
         - Effect: Allow
           Action:
+            - 'ssm:GetParameter'
             - 'ssm:GetParameters'
             - 'ssm:DescribeParameters'
           Resource: 'arn:aws:ssm:us-east-1:*:*'
