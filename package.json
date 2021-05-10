@@ -1,6 +1,6 @@
 {
   "name": "ecommerceitemmanager",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Ecommerce Item Manager",
   "main": "index.js",
   "scripts": {
