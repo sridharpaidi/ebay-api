@@ -2,7 +2,7 @@ const AWS = require('aws-sdk');
 
 const RoleArn = `arn:aws:iam::${process.env.ACCOUNT_ID}:role/CodeStarWorker-ebay-api-ToolChain`;
 
-console.log(roleArn);
+console.log(RoleArn);
 
 const sts = new AWS.STS();
 
