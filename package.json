@@ -4,9 +4,10 @@
   "description": "Ecommerce Item Manager",
   "main": "index.js",
   "scripts": {
-    "deploy": "serverless deploy",
     "configureSSM": "node ./src/scripts/configureSSM",
+    "deploy": "serverless deploy",
     "lint": "eslint ./src/**/*.js",
+    "package": "serverless package",
     "test": "echo \"Error: no test specified\""
   },
   "repository": {
